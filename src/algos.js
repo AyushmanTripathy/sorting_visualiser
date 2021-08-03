@@ -14,6 +14,7 @@ async function bubbleSort(arr) {
       }
 
       //draw the canvas
+      if (!running) return;
       await sleep(frameRate);
       draw(arr, [j, i]);
     }
@@ -80,6 +81,7 @@ async function mergeSort(arr, l, r) {
     return; //returns recursively
   }
 
+  if (!running) return;
   let m = l + parseInt((r - l) / 2);
 
   await mergeSort(arr, l, m);
@@ -111,13 +113,64 @@ async function insertionSort(arr, n) {
       arr[j + 1] = arr[j];
       j = j - 1;
 
+      if (!running) return;
       await sleep(frameRate);
       draw(arr, [j, i]);
     }
     arr[j + 1] = key;
   }
-
   console.log(arr);
+}
+
+function swap(items, leftIndex, rightIndex) {
+  let temp = items[leftIndex];
+  items[leftIndex] = items[rightIndex];
+  items[rightIndex] = temp;
+}
+
+async function partition(items, left, right) {
+  let pivot = items[Math.floor((right + left) / 2)], //middle element
+    i = left, //left pointer
+    j = right; //right pointer
+  while (i <= j) {
+    while (items[i] < pivot) {
+      i++;
+    }
+    while (items[j] > pivot) {
+      j--;
+    }
+    if (i <= j) {
+      swap(items, i, j); //sawpping two elements
+      i++;
+      j--;
+    }
+    await sleep(frameRate);
+    draw(items, [j, i]);
+  }
+  if (!running) return;
+  return i;
+}
+
+async function quickSort(items, left, right) {
+  let index;
+  if (!running) return;
+  if (items.length > 1) {
+    await sleep(frameRate);
+    draw(items, [left, right]);
+
+    index = await partition(items, left, right); //index returned from partition
+    if (left < index - 1) {
+      //more elements on the left side of the pivot
+      quickSort(items, left, index - 1);
+    }
+    if (index < right) {
+      //more elements on the right side of the pivot
+      quickSort(items, index, right);
+    }
+  }
+
+  if (!running) return;
+  console.log(items);
 }
 
 function sleep(ms) {

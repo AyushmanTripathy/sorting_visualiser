@@ -39,15 +39,16 @@
           value="20"
         />
         <label for="sortType"> Choose Sort Type</label>
-        <select
-          name="sortType"
-          id="sortType"
-          onchange="initSort(20,this.value)"
-        >
+        <select name="sortType" id="sortType">
           <option value="bubble">bubble</option>
           <option value="insertion">insertion</option>
           <option value="merge">merge</option>
+          <option value="quick">quick</option>
         </select>
+      </section>
+      <section id="options-wrapper">
+        <button id="startSimulation" onclick="stop()">Stop</button>
+        <button id="stopSimulation" onclick="start()">Start</button>
       </section>
     </section>
     <section id="container">

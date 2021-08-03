@@ -1,6 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const blockSize = 30;
+let running = false;
 let frameRate = 200;
 
 const sortTypes = {
@@ -13,7 +14,20 @@ const sortTypes = {
   merge: (arr) => {
     mergeSort(arr, 0, arr.length - 1);
   },
+  quick: (arr) => {
+    quickSort(arr, 0, arr.length - 1);
+  },
 };
+
+function start() {
+  running = true;
+  const type = document.getElementById("sortType").value;
+  initSort(20, type);
+}
+
+function stop() {
+  running = false;
+}
 
 function initSort(size, type) {
   let arr = randomNumbers(size, size - 5);
@@ -21,7 +35,11 @@ function initSort(size, type) {
 
   draw(arr, []);
 
-  sortTypes[`${type}`](arr);
+  try {
+    sortTypes[`${type}`](arr);
+  } catch (error) {
+    console.error(error);
+  }
 
   //bubbleSort(arr);
   //mergeSort(arr, 0, arr.length - 1);

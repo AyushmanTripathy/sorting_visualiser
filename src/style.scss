@@ -48,7 +48,7 @@ body {
 }
 
 #options-wrapper {
-  @include flexbox(column);
+  @include flexbox(row);
 }
 
 @mixin inputs {
@@ -63,6 +63,14 @@ body {
 }
 
 input {
+  @include inputs;
+}
+
+#startSimulation {
+  @include inputs;
+}
+
+#stopSimulation {
   @include inputs;
 }
 

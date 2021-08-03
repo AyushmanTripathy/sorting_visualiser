@@ -60,10 +60,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -73,6 +73,22 @@ body {
 }
 
 input {
+  margin: 10px;
+  background-color: #202124;
+  color: #bbb;
+  padding: 10px;
+  border: 1px #bbb solid;
+}
+
+#startSimulation {
+  margin: 10px;
+  background-color: #202124;
+  color: #bbb;
+  padding: 10px;
+  border: 1px #bbb solid;
+}
+
+#stopSimulation {
   margin: 10px;
   background-color: #202124;
   color: #bbb;
