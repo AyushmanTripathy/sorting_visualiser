@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Sorting</title>
+  </head>
+  <body>
+    <section id="topbar">
+      <!--HAM BURGER-->
+      <img
+        id="showMoreButton"
+        height="30px"
+        width="30px"
+        src="./src/icons/hamburger.svg"
+        onclick="showOptions()"
+      />
+
+      <!--CROSS-->
+      <img
+        src="./src/icons/close.svg"
+        height="30px"
+        width="30px"
+        id="showLessButton"
+        onclick="hideOptions()"
+      />
+
+      <!--OPTIONS WRAPPER-->
+      <section id="options-wrapper">
+        <label for="frameRate"> Frame Rate </label>
+        <input
+          type="number"
+          onchange="changeFrameRate(this.value)"
+          max="200"
+          min="5"
+          name="frameRate"
+          value="20"
+        />
+        <label for="sortType"> Choose Sort Type</label>
+        <select
+          name="sortType"
+          id="sortType"
+          onchange="initSort(20,this.value)"
+        >
+          <option value="bubble">bubble</option>
+          <option value="insertion">insertion</option>
+          <option value="merge">merge</option>
+        </select>
+      </section>
+    </section>
+    <section id="container">
+      <canvas height="600px" width="600px" id="canvas"></canvas>
+    </section>
+    <script defer src="./src/algos.js"></script>
+    <script defer src="./src/script.js"></script>
+  </body>
+</html>

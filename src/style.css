@@ -1,0 +1,123 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: #bbb;
+  background-color: #202124;
+}
+
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: baseline;
+      -ms-flex-pack: baseline;
+          justify-content: baseline;
+  padding: 20px;
+}
+
+#topbar {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 5px;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#options-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input {
+  margin: 10px;
+  background-color: #202124;
+  color: #bbb;
+  padding: 10px;
+  border: 1px #bbb solid;
+}
+
+select {
+  margin: 10px;
+  background-color: #202124;
+  color: #bbb;
+  padding: 10px;
+  border: 1px #bbb solid;
+}
+
+#showMoreButton {
+  display: none;
+}
+
+#showMoreButton:hover {
+  -webkit-animation: spin 1s forwards;
+          animation: spin 1s forwards;
+}
+
+#showLessButton {
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#showLessButton:hover {
+  -webkit-animation: spin 1s forwards;
+          animation: spin 1s forwards;
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */

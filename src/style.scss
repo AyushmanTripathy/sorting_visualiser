@@ -1,0 +1,93 @@
+$bg: #202124;
+$sec: #bbb;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100vw;
+
+  color: $sec;
+
+  background-color: $bg;
+}
+
+@mixin flexbox($direction) {
+  display: flex;
+  flex-direction: $direction;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  display: flex;
+  transform: scaleX(-1);
+  transform: scaleY(-1);
+  align-items: baseline;
+  justify-content: baseline;
+
+  padding: 20px;
+}
+
+#topbar {
+  z-index: 2;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  margin-top: 5px;
+
+  width: 100%;
+  height: fit-content;
+
+  @include flexbox(column);
+}
+
+#options-wrapper {
+  @include flexbox(column);
+}
+
+@mixin inputs {
+  margin: 10px;
+
+  background-color: $bg;
+  color: $sec;
+
+  padding: 10px;
+
+  border: 1px $sec solid;
+}
+
+input {
+  @include inputs;
+}
+
+select {
+  @include inputs;
+}
+
+#showMoreButton {
+  display: none;
+
+  &:hover {
+    animation: spin 1s forwards;
+  }
+}
+
+#showLessButton {
+  transition: all 500ms;
+
+  &:hover {
+    animation: spin 1s forwards;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
