@@ -31,10 +31,11 @@
       <section id="options-wrapper">
         <label for="frameRate"> Frame Rate </label>
         <input
-          type="number"
+          type="range"
           onchange="changeFrameRate(this.value)"
           max="200"
-          min="5"
+          min="2"
+          class="slider"
           name="frameRate"
           value="5"
         />

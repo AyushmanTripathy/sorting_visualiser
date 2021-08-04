@@ -28,7 +28,7 @@ const sortTypes = {
   },
 };
 
-start();
+//start();
 
 function start() {
   running = true;

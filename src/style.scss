@@ -22,6 +22,40 @@ body {
   align-items: center;
 }
 
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 1px;
+  background: $bg;
+  outline: none;
+  border: 1px solid $sec;
+  border-radius: 8px;
+
+  transform: rotate(180deg);
+}
+
+/* for chrome/safari */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 40px;
+  width: 10px;
+  background: $bg;
+  cursor: pointer;
+  border: 1px solid $sec;
+  border-radius: 4px;
+}
+
+/* for firefox */
+.slider::-moz-range-thumb {
+  height: 5px;
+  width: 5px;
+  background: $bg;
+  cursor: pointer;
+  border: 5px solid $sec;
+  border-radius: 4px;
+}
+
 #container {
   display: flex;
   transform: scaleX(-1);
@@ -60,6 +94,7 @@ body {
   padding: 10px;
 
   border: 1px $sec solid;
+  border-radius: 8px;
 }
 
 input {
@@ -76,6 +111,7 @@ input {
 
 select {
   @include inputs;
+  border-radius: 0;
 }
 
 #showMoreButton {

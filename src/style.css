@@ -14,6 +14,40 @@ body {
   background-color: #202124;
 }
 
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 1px;
+  background: #202124;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+/* for chrome/safari */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 40px;
+  width: 10px;
+  background: #202124;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+/* for firefox */
+.slider::-moz-range-thumb {
+  height: 5px;
+  width: 5px;
+  background: #202124;
+  cursor: pointer;
+  border: 5px solid #bbb;
+  border-radius: 4px;
+}
+
 #container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,6 +112,7 @@ input {
   color: #bbb;
   padding: 10px;
   border: 1px #bbb solid;
+  border-radius: 8px;
 }
 
 #startSimulation {
@@ -86,6 +121,7 @@ input {
   color: #bbb;
   padding: 10px;
   border: 1px #bbb solid;
+  border-radius: 8px;
 }
 
 #stopSimulation {
@@ -94,6 +130,7 @@ input {
   color: #bbb;
   padding: 10px;
   border: 1px #bbb solid;
+  border-radius: 8px;
 }
 
 select {
@@ -102,6 +139,8 @@ select {
   color: #bbb;
   padding: 10px;
   border: 1px #bbb solid;
+  border-radius: 8px;
+  border-radius: 0;
 }
 
 #showMoreButton {
