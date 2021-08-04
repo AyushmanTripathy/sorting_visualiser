@@ -36,13 +36,13 @@
           max="200"
           min="5"
           name="frameRate"
-          value="20"
+          value="5"
         />
         <label for="sortType"> Choose Sort Type</label>
-        <select name="sortType" id="sortType">
+        <select name="sortType" id="sortType" defau>
           <option value="bubble">bubble</option>
           <option value="insertion">insertion</option>
-          <option value="merge">merge</option>
+          <option value="merge" selected>merge</option>
           <option value="selection">selection</option>
           <option value="heap">heap</option>
           <option value="quick">quick</option>
@@ -54,7 +54,7 @@
       </section>
     </section>
     <section id="container">
-      <canvas height="600px" width="600px" id="canvas"></canvas>
+      <canvas height="800px" width="1500px" id="canvas"></canvas>
     </section>
     <script defer src="./src/algos.js"></script>
     <script defer src="./src/script.js"></script>

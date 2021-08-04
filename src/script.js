@@ -1,8 +1,11 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const blockSize = 30;
+const blockSize = 8;
+const margin = 1;
+const arrSize = 185;
+const height = 95;
 let running = false;
-let frameRate = 200;
+let frameRate = 50;
 
 const sortTypes = {
   bubble: (arr) => {
@@ -25,10 +28,12 @@ const sortTypes = {
   },
 };
 
+start();
+
 function start() {
   running = true;
   const type = document.getElementById("sortType").value;
-  initSort(20, type);
+  initSort(arrSize, type);
 }
 
 function stop() {
@@ -36,7 +41,7 @@ function stop() {
 }
 
 function initSort(size, type) {
-  let arr = randomNumbers(size, size - 5);
+  let arr = randomNumbers(size, height);
   console.log(arr);
 
   draw(arr, []);
@@ -46,10 +51,6 @@ function initSort(size, type) {
   } catch (error) {
     console.error(error);
   }
-
-  //bubbleSort(arr);
-  //mergeSort(arr, 0, arr.length - 1);
-  //insertionSort(arr, arr.length);
 }
 
 function randomNumbers(size, heightCap) {
@@ -65,9 +66,8 @@ function randomNumbers(size, heightCap) {
 function draw(arr, hl) {
   //reset
   ctx.fillStyle = "#202124";
-  ctx.fillRect(0, 0, canvas.height, canvas.width);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  const margin = 5;
   let i = -1;
   ctx.fillStyle = "#bbb";
 
@@ -75,13 +75,19 @@ function draw(arr, hl) {
     i++;
 
     //draw the rect
-    ctx.fillRect(i * blockSize + margin, 0, 20, blockSize * ele + 1);
+    ctx.fillRect(i * blockSize, 0, blockSize - margin, blockSize * ele + 1);
   });
 
   //higjlighting
   hl.forEach((index) => {
     ctx.fillStyle = "red";
-    ctx.fillRect(index * blockSize + margin, 0, 20, blockSize * arr[index] + 1);
+    ctx.fillRect(
+      index * blockSize,
+      0,
+      blockSize - margin,
+      blockSize * arr[index] + 1
+    );
+    //  base size of block , marign , y movement , width , hieght
   });
 }
 

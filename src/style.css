@@ -28,7 +28,7 @@ body {
   -webkit-box-pack: baseline;
       -ms-flex-pack: baseline;
           justify-content: baseline;
-  padding: 20px;
+  margin: 20px;
 }
 
 #topbar {
