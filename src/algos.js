@@ -122,7 +122,7 @@ async function insertionSort(arr, n) {
   console.log(arr);
 }
 
-function swap(items, leftIndex, rightIndex) {
+function quickSwap(items, leftIndex, rightIndex) {
   let temp = items[leftIndex];
   items[leftIndex] = items[rightIndex];
   items[rightIndex] = temp;
@@ -140,7 +140,7 @@ async function partition(items, left, right) {
       j--;
     }
     if (i <= j) {
-      swap(items, i, j); //sawpping two elements
+      quickSwap(items, i, j); //sawpping two elements
       i++;
       j--;
     }
@@ -171,6 +171,78 @@ async function quickSort(items, left, right) {
 
   if (!running) return;
   console.log(items);
+}
+
+//HEAP SORT
+async function heapSort(arr) {
+  n = arr.length;
+
+  // Build heap (rearrange array)
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) await heapify(arr, n, i);
+
+  // One by one extract an element from heap
+  for (let i = n - 1; i > 0; i--) {
+    // Move current root to end
+    let temp = arr[0];
+    arr[0] = arr[i];
+    arr[i] = temp;
+
+    // call max heapify on the reduced heap
+    await heapify(arr, i, 0);
+  }
+  console.log(arr);
+}
+
+// To heapify a subtree rooted with node i which is
+// an index in arr[]. n is size of heap
+async function heapify(arr, n, i) {
+  let largest = i; // Initialize largest as root
+  let l = 2 * i + 1; // left = 2*i + 1
+  let r = 2 * i + 2; // right = 2*i + 2
+
+  if (!running) return;
+  await sleep(frameRate);
+  draw(arr, [r, l]);
+
+  // If left child is larger than root
+  if (l < n && arr[l] > arr[largest]) largest = l;
+
+  // If right child is larger than largest so far
+  if (r < n && arr[r] > arr[largest]) largest = r;
+
+  // If largest is not root
+  if (largest != i) {
+    let swap = arr[i];
+    arr[i] = arr[largest];
+    arr[largest] = swap;
+
+    // Recursively heapify the affected sub-tree
+    await heapify(arr, n, largest);
+  }
+}
+
+function selectionSwap(arr, xp, yp) {
+  let temp = arr[xp];
+  arr[xp] = arr[yp];
+  arr[yp] = temp;
+}
+
+async function selectionSort(arr, n) {
+  let i, j, min_idx;
+
+  // One by one move boundary of unsorted subarray
+  for (i = 0; i < n - 1; i++) {
+    // Find the minimum element in unsorted array
+    min_idx = i;
+    for (j = i + 1; j < n; j++) if (arr[j] < arr[min_idx]) min_idx = j;
+
+    // Swap the found minimum element with the first element
+    selectionSwap(arr, min_idx, i);
+
+    if (!running) return;
+    await sleep(frameRate);
+    draw(arr, [j, i]);
+  }
 }
 
 function sleep(ms) {

@@ -17,6 +17,12 @@ const sortTypes = {
   quick: (arr) => {
     quickSort(arr, 0, arr.length - 1);
   },
+  heap: (arr) => {
+    heapSort(arr);
+  },
+  selection: (arr) => {
+    selectionSort(arr, arr.length);
+  },
 };
 
 function start() {
