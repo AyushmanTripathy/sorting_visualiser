@@ -1,6 +1,8 @@
 $bg: #202124;
 $sec: #bbb;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300&display=swap");
+
 body {
   display: flex;
   justify-content: center;
@@ -9,6 +11,7 @@ body {
   height: 100vh;
   width: 100vw;
 
+  font-family: "Roboto Mono", monospace;
   color: $sec;
 
   background-color: $bg;
